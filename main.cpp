@@ -1,11 +1,11 @@
 #include<iostream>
 using namespace std;
-void insertElements(int*& array, int& size, int* elements, int numElements, int index) {
+void deleteElements(int*& array, int& size, int* elements, int numElements, int index) {
     if (index < 0 || index > size) {
         return;
     }
-    int newSize = size + numElements;
-    int* newArray = new int[newSize];
+    int deleteSize = size - numElements;
+    int* newArray = new int[deleteSize];
     for (int i = 0; i < index; i++) {
         newArray[i] = array[i];
     }
@@ -17,5 +17,5 @@ void insertElements(int*& array, int& size, int* elements, int numElements, int 
     }
     delete[] array;
     array = newArray;
-    size = newSize;
+    size = deleteSize;
 }
